@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>티켓상품</title>
+
+  <!-- theme/icons css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/theme/css/theme.min.css">
+
+  <!-- common css -->
+  <link rel="stylesheet" href="/static/css/common.css">
+</head>
+<body class="handheld-toolbar-enabled shadow">
+  <main class="page-wrapper">
+    
+<header>
+  <div class="bg-light shadow-none" style="border-bottom:1px solid #efefef;">
+    <!-- 최상단 -->
+    <div class="navbar navbar-light">
+      <div class="container">
+        
+          <a href="javascript:history.back();" class="btn py-1 px-2 text-dark d-block"><i class="ci-arrow-left"></i></a>
+        
+        <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+          <div class="navbar-tool">
+            <a href="javascript:void(0);" class="navbar-tool-icon-box" id="pushBell" onclick="openPush()" style="line-height: 3rem;">
+              <i class="navbar-tool-icon custom-icon icon-bell" style="font-size: 21px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+      <!-- theme menu -->
+      <div class="position-relative px-2">
+        <div class="overflow-scroll scroll-d-none x-slider">
+          <ul class="btn-grp d-flex align-items-center flex-nowrap list-unstyled mb-0 primary_menu">
+            <li class="px-3 mb-0 flex-shrink-0"><a href="/pages/shop_ticket/" class="py-2 d-inline-block text-dark">오늘티켓</a></li>
+            <li class="px-3 mb-0 flex-shrink-0"><a href="/pages/brand_ticket/" class="py-2 d-inline-block text-dark">브랜드티켓</a></li>
+            <li class="px-3 mb-0 flex-shrink-0"><a href="/pages/shopping/" class="py-2 d-inline-block text-dark">쇼핑</a></li>
+            <li class="px-3 mb-0 flex-shrink-0"><a href="/pages/event/" class="py-2 d-inline-block text-dark">이벤트</a></li>
+          </ul>
+        </div>
+        <div class="to_left d-none"></div>
+        <div class="to_right d-none"></div>
+      </div>
+    
+  </div>
+</header>
+
+    
+    <!-- 페이지별 본문 -->
+    
+<style>
+  .handheld-toolbar-enabled .footer {padding-bottom: 8.3rem !important;}
+</style>
+
+<div class="container mt-4 mb-2 mb-md-4 pb-5">
+	<!-- Gallery + details-->
+	<div class="bg-light shadow-lg rounded-3 px-3 py-3 mb-5">
+    <div class="row">
+      <!-- Product gallery-->
+      <div class="product-gallery">
+        <div class="product-gallery-preview order-sm-2 mt-0">
+          <div class="product-gallery-preview-item active overflow-hidden" id="prd-1">
+            <img src="/static/img/product/detail/mega1.png" alt="Product image">
+            <div class="image-zoom-pane"></div>
+          </div>
+          <div class="product-gallery-preview-item overflow-hidden" id="prd-2">
+            <img src="/static/img/product/detail/mega2.png" alt="Product image">
+            <div class="image-zoom-pane"></div>
+          </div>
+          <div class="product-gallery-preview-item overflow-hidden" id="prd-3">
+            <img src="/static/img/product/detail/mega3.png" alt="Product image">
+            <div class="image-zoom-pane"></div>
+          </div>
+        </div>
+        <div class="product-gallery-thumblist order-sm-1 p-0">
+          <a class="product-gallery-thumblist-item active" href="#prd-1">
+            <img src="/static/img/product/detail/mega1.png" alt="Product thumb" class="img-1by1">
+          </a>
+          <a class="product-gallery-thumblist-item" href="#prd-2">
+            <img src="/static/img/product/detail/mega2.png" alt="Product thumb" class="img-1by1">
+          </a>
+          <a class="product-gallery-thumblist-item" href="#prd-3">
+            <img src="/static/img/product/detail/mega3.png" alt="Product thumb" class="img-1by1">
+          </a>
+        </div>
+      </div>
+      <!-- Product details-->
+      <div class="pt-4">
+        <hr class="mb-3 d-block">
+        <div class="product-details ms-auto">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <!-- review -->
+            <a href="javascript:;" onclick="openReview();">
+              <span class="d-inline-block fs-sm text-body align-middle mt-1 ms-1">리뷰 0</span>
+            </a>
+            <button class="btn-wishlist me-0" type="button" onclick="wish(event, this)"><i class="ci-heart"></i></button>
+          </div>
+          <!-- name/price -->
+          <div class="mb-3">
+            <div class="h5 mb-1 fw-bold">(HOT)아메리카노</div>
+            <div class="text-muted fs-sm">★사용기한 30일</div>
+            <div class="mt-2">
+              <div>
+                <span class="me-1 text-primary fw-bold fs-lg">4%</span>
+                <del class="text-muted fs-lg">1,700원</del>
+              </div>
+              <div class="h3 me-1 fw-bold lineH-10">1,630<small class="fw-normal">원</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion my-4" id="ecouponPanels">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" href="#ecouponInfo" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="ecouponInfo">
+                <i class="ci-lable text-muted lead align-middle me-2"></i>상품 정보
+              </button>
+            </h3>
+            <div class="accordion-collapse collapse show" id="ecouponInfo" data-bs-parent="#ecouponPanels">
+              <div class="accordion-body px-2 fs-sm">
+                <div class="d-flex border-bottom pb-3 px-2">
+                  <div class="fw-semibold text-dark flex-shrink-0" style="width:100px;">상품 형태</div>
+                  <div>모바일 교환권</div>
+                </div>            
+                <div class="d-flex border-bottom py-3 px-2">
+                  <div class="fw-semibold text-dark flex-shrink-0" style="width:100px;">유효기간</div>
+                    <div class="word-keep-all">구매 후 30일</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- option box -->
+        <form class="w-100 bg-white option_box" onsubmit="return false;">
+          <div class="option_select_wrap px-4 pt-5">
+            <div class="d-flex justify-content-center align-items-center w-100 py-1 position-absolute top-0 start-0 border-bottom bg-secondary" onclick="closeOption();" style="cursor: pointer;"><i class="ci-arrow-down fs-xs"></i></div>
+            <div class="option-frame">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">(HOT)아메리카노</h6>
+                <a class="text-muted" href="#" onclick="" style="visibility: hidden"><i class="ci-close small"></i></a>
+              </div>
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <div class="input-group input-group-sm d-flex" style="width:128px;">
+                  <button class="btn btn-outline-dark" type="button" onclick="minus(this, 1630)"><i class="fa-solid fa-minus"></i></button>
+                  <input class="form-control text-center w-25" type="text" name="cnt" value="1" onkeyup="valueChange(this, 1630)">
+                  <button class="btn btn-outline-dark" type="button" onclick="plus(this, 1630)"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <span class="h3 fw-normal me-1 pt-3"><span id="prdPrice">1,630</span>원</span>
+                <input type="hidden" value="" name="id">
+                <input type="hidden" value="1630" name="price">
+              </div>
+            </div>            
+            <hr class="d-block">
+            <div class="d-flex justify-content-end align-items-center mt-3">
+              <span class="h3 me-1 text-primary fw-bold"><span class="fs-lg text-dark me-2">총 상품 금액 </span><span id="total">1,630</span>원</span>
+            </div>
+          </div>
+          <!-- btn -->
+          <div class="p-3 d-flex justify-content-between bg-white">
+            <div class="d-block me-3" style="width:44px;">
+              <button class="btn-wishlist" type="button" onclick="wish(event, this)"><i class="ci-heart"></i></button>
+            </div>
+            <div class="d-flex btn_closed" style='width:100%;'>
+              <button class="btn btn-outline-primary btn-shadow d-block w-100 me-2" type="button" onclick="openOption();">장바구니</button>
+              <button class="btn btn-primary btn-shadow d-block w-100" type="button" onclick="openOption();">구매하기</button>
+            </div>
+            <div class="d-none w-100 btn_opened">
+              <button class="btn btn-outline-primary btn-shadow d-block w-100 me-2" type="button" onclick="add_cart()">장바구니</button>
+              <button class="btn btn-primary btn-shadow d-block w-100" type="button" onclick="order()">구매하기</button>
+            </div>
+          </div>
+        </form>
+        <!-- // option box -->
+      </div>
+    </div>
+    <!-- tab -->
+    <ul class="nav nav-tabs nav-fill justify-content-center mt-5" role="tablist">
+      <li class="nav-item"><a href="#product_info" class="nav-link active px-2" data-bs-toggle="tab" role="tab">상품설명</a></li>
+      <li class="nav-item"><a href="#essential_info" class="nav-link px-2" data-bs-toggle="tab" role="tab">상세정보</a></li>
+      <li class="nav-item"><a href="#review" class="nav-link px-2" data-bs-toggle="tab" role="tab">리뷰</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="product_info" role="tabpanel" class="tab-pane fade show active">
+        <div class="d-flex flex-column justify-content-center align-items-center position-relative">
+          <div id="descr_box" class="closed col-sm-12 pt-md-3 pb-5" style="height:fit-content; overflow:hidden;">
+            <img src="/static/img/product/detail/detail.png" alt="">
+          </div>
+          <!-- Read more -->
+          <div id="read_more_area" class="col-12 position-absolute bottom-0 pt-5 pb-2 px-1 text-center d-none" style="background:linear-gradient(rgba(255,255,255,0) 20%,rgba(255,255,255,1) 80%);">
+            <button class="btn w-100 bg-white border border-dark" onclick="descrOpen(this);">자세히 보기 &nbsp;<i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>      
+      <div id="essential_info" role="tabpanel" class="tab-pane fade pb-3">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="px-0">
+              <h5>상품 정보 고시</h5>
+              <div class="table-responsive">
+                <table class="table table-bordered fs-sm">
+                  <tbody>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">발행자</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">교환권공급자</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">유효기간</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">이용조건</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">이용처</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">환불조건 및 방법</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">소비자 상담 관련 전화번호</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="px-0 pt-3">
+              상세설명
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="review" role="tabpanel" class="tab-pane fade pb-3">
+        <div class="row justify-content-center px-4">
+          <div class="col-12 px-0">
+            <div class="product-review border-bottom px-3 py-3">
+              <div>
+                <span class="fw-bold me-2">김 * *</span>
+                <small class="text-muted">2025-01-01</small>                      
+              </div>                
+              <div class="d-flex flex-wrap gap-2">
+                <img src="/static/img/product/thumb/megacoffee.png" class="w-100 mb-2" style="max-width:150px;">
+                <img src="/static/img/product/thumb/megacoffee.png" class="w-100 mb-2" style="max-width:150px;">
+                <img src="/static/img/product/thumb/megacoffee.png" class="w-100 mb-2" style="max-width:150px;">
+              </div>
+              <div class="fs-md">리뷰내용</div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="text-center mt-4 pt-3 border-top">
+      <a class="btn btn-outline-accent" type="button" data-bs-toggle="modal" href="#modalQuestion">상품 문의하기</a>
+    </div>    
+  </div>
+</div>
+
+<!-- 상품문의 modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modalQuestion">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">상품 문의</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="d-flex align-items-center">
+            <div style="width:48px;"><img src="/static/img/product/thumb/megacoffee.png" class="img-1by1 rounded-1" alt="Product"></div>
+            <div class="ps-2">
+              <h6 class="widget-product-title">(HOT)아메리카노</h6>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <label class="form-label" for="qna-subject">제목 <strong class='text-danger'>*</strong></label>
+          <input class="form-control" type="text" id="qna-subject" name="title" onkeyup="textLimit(this,20);" placeholder="최대 20자 까지 작성 할 수 있습니다." required>
+          <div class="invalid-feedback">제목을 입력해 주세요.</div>
+        </div>
+        <div class="mt-2">
+          <label class="form-label" for="qna-message">내용 <strong class='text-danger'>*</strong></label>
+          <textarea class="form-control" rows="6" required id="qna-message" name="contents" onkeyup="textLimit(this,2000);" placeholder="최대 2000자 까지 작성 할 수 있습니다."></textarea>
+          <div class="invalid-feedback">내용을 입력해 주세요.</div>
+        </div>
+        <div class="pt-2 d-flex justify-content-end">
+          <button class="btn btn-primary" type="button" onclick="question()">문의 하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Toolbar-->
+    <div class="handheld-toolbar border-bottom">
+      <div class="d-table table-layout-fixed w-100">
+        <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" onclick="offCanvasOpen('#mobile_search');">
+          <span class="handheld-toolbar-icon"><i class="custom-icon icon-search"></i></span>
+          <span class="handheld-toolbar-label">검색</span>
+        </a>
+        <a class="d-table-cell handheld-toolbar-item" href="#">
+          <span class="handheld-toolbar-icon position-relative">
+            <i class="navbar-tool-icon custom-icon icon-cart"></i>
+            <span class="badge rounded-pill bg-primary position-absolute px-1 py-0" style="min-width:15px; height:15px; line-height:15px; top:2px; left:56%;">1</span>
+          </span>
+          <span class="handheld-toolbar-label">장바구니</span>
+        </a>
+        <a class="d-table-cell handheld-toolbar-item align-middle" href="/">
+          <img src="/static/img/weincHome.svg" alt="Home" style="width:24px;">
+        </a>
+        <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" onclick="offCanvasOpen('#mobile_mymenu');">
+          <span class="handheld-toolbar-icon"><i class="custom-icon icon-user"></i></span>
+          <span class="handheld-toolbar-label">마이메뉴</span>
+        </a>
+        <a class="d-table-cell handheld-toolbar-item" href="#">
+          <span class="handheld-toolbar-icon"><i class="custom-icon icon-heart"></i></span>
+          <span class="handheld-toolbar-label">관심상품</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- search -->
+    <div id="mobile_search">
+      <div class="mobile_offcanvas_wrap p-3">
+        <div class="offcanvas-header justify-content-end p-0">
+          <button type="button" class="btn btn-outline-secondary btn-sm" onclick="offCanvasClose('#mobile_search');"><i class="ci-close"></i></button>
+        </div>
+        <div class="input-group mt-5 position-relative">
+          <input id="mobile_search_box" onkeyup="if(window.event.keyCode == 13) { productSearch('mobile_search_box'); }" class="form-control form-control-md ps-2 pe-5 border-0 rounded-0 border-bottom border-dark border-2" type="text" name="q" minlength="2" placeholder="찾고 싶은 상품을 검색해보세요.">
+          <a href="javascript:;" onclick="productSearch('mobile_search_box');" class="position-absolute top-50 end-0 px-3 translate-middle-y text-dark"><i class="ci-search"></i></a>
+        </div>
+        <div class="mt-5 pt-3">
+          <div class="d-flex justify-content-between">
+            <span class="fw-bold">최근 검색어</span>
+            <a href="javascript:;" onclick="searchReset();" class="text-muted fs-sm">지우기</a>
+          </div>
+          <div id="recent_search" class="mt-2 fs-sm d-flex gap-2 flex-wrap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- my menu -->
+    <div id="mobile_mymenu">
+      <div class="mobile_offcanvas_wrap">
+        <div class="page-title-overlap bg-dark pt-3 px-3">
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-secondary btn-sm text-white" onclick="offCanvasClose('#mobile_mymenu');"><i class="ci-close"></i></button>
+          </div>
+        </div>
+        <div class="row mx-0 px-3">
+          <div class="col-12 px-0 mb-4 card mx-auto bg-white shadow border-0 overflow-hidden">
+            <div class="card-header py-4 text-center border-0">
+              <div class="text-muted">user@email.com</div>
+            </div>
+            <div class="card-body p-0">
+              <div class="bg-secondary text-muted px-4 py-2 fs-sm">마이메뉴</div>
+              <ul class="list-unstyled mb-0">
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="/pages/account_orders/">
+                      <i class="fa-solid fa-receipt nav-link-icon"></i>주문내역
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-ticket nav-link-icon"></i>오늘티켓
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-percent nav-link-icon"></i>쿠폰
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-heart nav-link-icon"></i>관심상품
+                      <span class="badge rounded bg-primary ms-auto wish-count">1</span>
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-user nav-link-icon"></i>개인정보수정
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-truck-fast nav-link-icon"></i>배송지관리
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-bullhorn nav-link-icon"></i>공지사항
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-headset nav-link-icon"></i>자주하는 질문
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="#">
+                      <i class="fa-solid fa-circle-question nav-link-icon"></i>문의내역
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="#">
+                      <i class="fa-solid fa-comment-dots nav-link-icon"></i>상품리뷰
+                    </a>
+                  </li>
+                  <li class="border-none mb-0">
+                    <a class="d-flex align-items-center px-4 py-3 bg-primary text-white" href="#">
+                      <i class="fa-solid fa-power-off nav-link-icon" style="color:#fff !important;"></i>로그아웃
+                    </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+
+    <!-- Back To Top Button-->
+    <a class="btn-scroll-top" href="javascript:void(0);" onclick="scrolltoTop();">
+      <i class="btn-scroll-top-icon ci-arrow-up"> </i>
+    </a>
+
+    <footer class="footer bg-dark">
+  <div class="pt-4 bg-darker">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <div class="widget widget-links widget-light">
+            <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
+              <li class="widget-list-item me-2"><a class="widget-list-link" href="">이용 약관</a></li>
+              <li class="widget-list-item mx-2"><a class="widget-list-link" href="">개인정보취급방침</a></li>
+              <li class="widget-list-item mx-2"><a class="widget-list-link" href="">청소년보호정책</a></li>
+              <li class="widget-list-item ms-2"><a class="widget-list-link" href="">판매자정보</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 text-center text-md-end d-none">
+          <div class="mb-3 mt-3 mt-md-0">
+            <a class="btn-social bs-light bs-twitter me-1 mb-2" href="#"><i class="ci-twitter"></i></a>
+            <a class="btn-social bs-light bs-facebook mx-1 mb-2" href="#"><i class="ci-facebook"></i></a>
+            <a class="btn-social bs-light bs-instagram mx-1 mb-2" href="#"><i class="ci-instagram"></i></a>
+            <a class="btn-social bs-light bs-youtube ms-1 mb-2" href="#"><i class="ci-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="pb-2 fs-xs text-light opacity-50">(주)코니아랩<br>
+        주소: 서울특별시 광진구 천호대로 690 3층 <br>
+        사업자 등록번호: 180-81-00867<br>
+        대표자: 김규식,나현정<br>
+        건강기능식품 영업신고번호: 제20210040295호<br>
+        의료기기판매업 신고번호: 제2745호<br>
+        통신판매업 신고번호: 제2019-서울광진-1022호<br>
+        이메일: conia_cs@conia.co.kr<br>
+        카카오톡 채널: 윙-크<br>
+        (주)코니아랩은 통신판매중개자로서 통신판매 당사자가 아니며, 판매자가 판매하는 상품정보 및 거래에 관한 의무와 책임을 지지 않습니다.
+      </div>
+      <div class="pb-4 fs-xs text-light opacity-50 text-center text-md-start">Copyright ⓒ 
+        <a class="text-light" href="https://www.conialab.com" target="_blank" rel="noopener">ConiaLab Corp.</a> All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </main>
+
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", themeActiveMenu);
+
+    // theme menu active
+    function themeActiveMenu() {
+      const currentPath = window.location.pathname;
+      const menuItems = document.querySelectorAll(".primary_menu li");
+
+      menuItems.forEach(function(li) {
+        const aTag = li.querySelector("a");
+        if (aTag) {
+          const href = aTag.getAttribute("href");
+
+          if (href == currentPath) {
+            li.classList.add("active");
+          }
+        }
+      });
+    }
+
+    function offCanvasOpen(obj) {
+      $("body").css("overflow","hidden");
+      $(obj).show();
+    }
+
+    function offCanvasClose(obj) {
+      $("body").css("overflow","auto");
+      $(obj).hide();
+    }
+
+    const pillBox = document.getElementById("recent_search");
+    let currentSearchCookie = getCookie("search");
+    function cookieSet(){
+      const searchParams = new URL(location.href).searchParams;
+      const getKeyword = searchParams.get("q");
+
+      let newSearchList = '';
+      if(getKeyword) {
+        newSearchList = getKeyword + ",";
+      }
+      if(currentSearchCookie) {
+        newSearchList += currentSearchCookie;
+      }
+
+      let pillArr;
+      let newSearchCookie = '';
+      if(newSearchList) {
+        pillArr = newSearchList.split(",");
+        pillArr = [...new Set(pillArr)];
+        pillArr.forEach(function(pill) {
+          if(!pill) return;
+          pillBox.innerHTML += "<a href='//product/search?q="+ pill +"' class='flex-shirink-0 rounded-pill border p-2 text-dark'>" + pill + "</a>";
+
+          newSearchCookie += pill + ",";
+        });
+      }
+
+      setCookie("search", newSearchCookie, 30);
+    }
+
+    function productSearch(input) {
+      let url = "//product/search?q=";
+      let keyword = document.getElementById(input).value.trim();
+      if (keyword) {
+        if(keyword.length < 2) {
+          swal.fire({
+            icon: "warning",
+            title: "검색어를 2자 이상 입력하세요.",
+            showConfirmButton: false,
+            timer: 1000
+          });
+          return;
+        }
+        location.href = url + keyword;
+      } else {
+        swal.fire({
+          icon: "warning",
+          title: "검색어를 입력하세요.",
+          showConfirmButton: false,
+          timer: 1000
+        });
+      }
+    }
+
+    function searchReset() {
+      let today = new Date();
+      today.setTime(today.getTime() - 1*24*60*60*1000);
+      document.cookie = escape("search") + "=; path=/; expires=" + today.toUTCString() + ";";
+      pillBox.innerHTML = "";
+      currentSearchCookie = false;
+    }
+
+    // modal gallery
+    function modalGallery(img) {
+      $(".gallery_img").attr("src", img);
+      $("#modal_gallery").modal("show");
+    }
+
+    $("#modal_gallery .modal-body").click(function () {
+      $("#modal_gallery").modal("hide");
+    });
+  </script>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" crossorigin="anonymous"></script>
+  <!-- common js -->
+  <script src="/static/js/aconic-common.js?v=1"></script>
+  <!-- theme js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/theme/js/theme.js"></script>
+</body>
+</html>
