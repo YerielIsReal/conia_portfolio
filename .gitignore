@@ -1,6 +1,8 @@
-# Node.js dependencies
-node_modules/
-_site/
+# 1. 빌드 결과물 _site와 .gitignore를 제외한 모든 것을 무시
+*
+!_site/
+!.gitignore
 
-# 🚨 main 브랜치에서만 njk 파일 무시 (모든 폴더의 .njk 파일 제외)
-**/*.njk
+# 2. 기타 불필요한 폴더 및 파일 (안전 장치)
+node_modules/
+.DS_Store
