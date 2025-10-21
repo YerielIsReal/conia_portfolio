@@ -1,0 +1,16 @@
+body{color: #000000 !important;}
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{color: #000000;}
+.text-dark{color: #000000 !important;}
+.navbar-nav{color: #000000 !important;}
+.navbar-light .nav-link>i{color: #000000;}
+.nav-link{color: #000000;}
+.navbar-light .navbar-tool-text{color: #000000;}
+.navbar-light .navbar-tool-icon-box{color: #000000 !important;}
+.dropdown-item{color: #000000;}
+.handheld-toolbar-icon{color: #000000;}
+.handheld-toolbar-label{color: #000000;}
+.form-control{color: #000000 !important;}
+.accordion-button:not(.collapsed){color: #000000;}
+.accordion-item{color: #000000;}
+.page-link{color: #000000;}
+.page-link:focus, .page-link:hover{color: #000000;}

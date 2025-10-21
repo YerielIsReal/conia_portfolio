@@ -1,0 +1,248 @@
+---
+layout: base.njk
+title: 매장 상세
+permalink: /pages/shop/index.html
+---
+<div class="container mt-4 mb-2 mb-md-4 pb-5">
+  <div class="row">
+    <!-- Content  -->
+    <section class="col-12">
+      <div class="card shadow bg-white">
+        <div class="card-body p-0">
+          <div class="row mx-0 my-3 align-items-center">
+            <div class="col-md-5 col-12">
+              <img src="/static/img/shop/shop1.png" class="img-1by1 rounded-3" alt="shop">
+            </div>
+            <div class="col-md-7 col-12 mt-md-0 mt-3 ps-md-2">
+              <h5 class="fw-bold mb-1 word-keep-all">삼백집 지타워몰점</h5>
+              <div class="text-muted mb-2 word-keep-all">하루, 삼백 그릇 정성으로 담아내는 단 하나의 맛!</div>
+              <div class="d-flex gap-1 flex-wrap mb-3">
+                <span class="badge badge-shadow position-static" style="background-color: #ff5f00">특가</span>
+                <span class="badge badge-shadow position-static" style="background-color: #06a750">G타워매장</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="ci-location me-2 mb-1 text-warning fs-sm"></i>
+                <div>
+                  <span class="me-1 word-keep-all">서울 구로구 디지털로26길 38 지타워 1층</span>
+                  <a href="javascript:void(0);" onclick="copyClipboard('서울 구로구 디지털로26길 38 지타워 1층');" class="d-inline-block px-1 border rounded text-dark fs-xs">복사</a>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mt-2 text-dark">
+                <i class="ci-phone me-2 text-success fs-sm"></i>
+                <div>
+                  <span class="me-1">02-6077-3932</span>
+                  <a href="javascript:void(0);" onclick="copyClipboard('02-6077-3932');" class="d-inline-block px-1 border rounded text-dark fs-xs">복사</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <ul class="nav nav-tabs nav-fill" role="tablist">
+          <li class="nav-item"><a href="#product" class="nav-link active" data-bs-toggle="tab" role="tab">판매 상품</a></li>
+          <li class="nav-item"><a href="#shop" class="nav-link" data-bs-toggle="tab" role="tab" onclick="mapRendering('shopMap','서울 구로구 디지털로26길 38','삼백집 지타워몰점');">매장 정보</a></li>
+        </ul>
+
+        <div class="tab-content mt-4">
+          <div class="tab-pane fade show active" id="product" role="tabpanel">
+            <!-- Products grid-->
+            <div class="row mx-n1">
+              <!-- Product-->
+              <div class="col-6 px-1 mb-grid-gutter">
+                <div class="card product-card h-100 border-0 overflow-hidden">
+                  <a href="#" class="d-block h-100 text-dark">
+                    <div class="position-relative">
+                      <img src="/static/img/shop/shop_product/sambaek1.png" alt="Product" class="img-1by1 rounded-3">
+                    </div>
+                    <div class="item-card-body">
+                      <div class="item-name-wrap">
+                        <div class="item-shop-name">삼백집</div>
+                        <div class="item-title ellipsis-2">전주놋그릇비빔밥</div>
+                      </div>
+                      <div class="item-price-wrap">
+                        <span class="item-discount-per">10%</span>
+                        <div class="item-selling-price">9,000원</div>
+                        <div class="item-discount-wrap">
+                          <del class="item-discount-price">10,000원</del>
+                        </div>
+                      </div>
+                      <!--뱃지 영역-->
+                      <div class="item-badge-wrap">
+                        <span class="badge badge-shadow" style="background-color: #ff5f00;">특가</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="shop" role="tabpanel">
+            <div class="d-md-table px-3">
+              <div class="d-md-table-row mb-3">
+                <div class="d-md-table-cell pe-0 pb-md-3 pb-0 text-muted" style="min-width:130px;">상호명</div>
+                <div class="d-md-table-cell">삼백집 지타워몰점</div>
+              </div>
+              <div class="d-md-table-row mb-3">
+                <div class="d-md-table-cell pe-0 pb-md-3 pb-0 text-muted">주소</div>
+                <div class="d-md-table-cell">서울 구로구 디지털로26길 38 지타워 1층</div>
+              </div>
+              <div class="d-md-table-row mb-3">
+                <div class="d-md-table-cell pe-0 pb-md-3 pb-0 text-muted">사업장 전화</div>
+                <div class="d-md-table-cell">	02-6077-3932</div>
+              </div>
+              <div class="d-md-table-row mb-3">
+                <div class="d-md-table-cell pe-0 pb-md-3 pb-0 text-muted">영업시간</div>
+                <div class="d-md-table-cell">	월,화,수,목,금 10:00~21:00 브레이크타임 15:00~17:00</div>
+              </div>
+              <div class="d-md-table-row mb-3">
+                <div class="d-md-table-cell pe-0 pb-md-3 pb-0 text-muted">휴무일</div>
+                <div class="d-md-table-cell">주말,공휴일</div>
+              </div>
+              <div class="d-md-table-row mb-3">
+                <div class="d-md-table-cell pe-0 pb-md-3 pb-0 text-muted">기타 안내사항</div>
+                <div class="d-md-table-cell">
+                  <div class="pre">- 본 티켓은 삼백집 G타워점에서만 사용 가능합니다.</div>
+                </div>
+              </div>
+            </div>
+            <div id="shopMap" class="w-100 mt-5 bg-secondary" style="height:400px;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  // kakaomap
+
+    var container = document.getElementById('shopMap');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 4
+		};
+
+		var map = new kakao.maps.Map(container, options);
+
+  function mapRendering(mapId, address, shopName) {
+    // let mapContainer = document.getElementById(mapId),
+    //     mapOption = {
+    //       center: new kakao.maps.LatLng(37.4808125646967, 126.892678392752),
+    //       level: 4
+    //     };
+
+    // let map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // let geocoder = new kakao.maps.services.Geocoder();
+    // geocoder.addressSearch(address, function (result, status) {
+    //   if (status === kakao.maps.services.Status.OK) {
+
+    //     let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+    //     let marker = new kakao.maps.Marker({
+    //       position: coords,
+    //     });
+
+    //     marker.setMap(map);
+
+    //     let markerContent = "<div class='custom-marker rounded-pill border'>" + shopName + "</div>";
+    //     let customOverlay = new kakao.maps.CustomOverlay({
+    //       map: map,
+    //       position: coords,
+    //       content: markerContent,
+    //       yAnchor: 1
+    //     });
+
+    //     map.setCenter(coords);
+    //   } else {
+    //     alert('주소를 표시할 수 없습니다.');
+    //   }
+    // });
+  }
+
+  function wish(obj, productId) {
+    event.preventDefault();
+
+    let cl = obj.querySelector("i").classList;
+    let action = '';
+
+    for (const el of cl) {
+      if (el === "ci-heart") {
+        action = 'add';
+      } else {
+        action = 'del';
+      }
+    }
+
+    if (action === 'add') {
+      axios.post("/api/wish/" + productId + "?store_code={{ request.path_params.store_code }}", {
+        headers: {'Content-Type': 'application/json'}
+      }).then(function (response) {
+        obj.querySelector("i").classList.remove('ci-heart');
+        obj.querySelector("i").classList.add('ci-heart-filled');
+        obj.querySelector("i").classList.add('text-primary');
+        Swal.fire({
+          icon: 'success',
+          title: '이 등록되었습니다.',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }).catch(function (error) {
+        console.log(error);
+        if (error.response) {
+          alert(error.response.data.msg);
+        }
+      });
+    } else {
+      axios.delete("/api/wish/" + productId + "?store_code={{ request.path_params.store_code }}", {
+        headers: {'Content-Type': 'application/json'}
+      }).then(function (response) {
+        obj.querySelector("i").classList.remove('ci-heart-filled');
+        obj.querySelector("i").classList.remove('text-primary');
+        obj.querySelector("i").classList.add('ci-heart');
+        Swal.fire({
+          icon: 'success',
+          title: '관심 상품이 삭제 되었습니다.',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }).catch(function (error) {
+        console.log(error);
+        if (error.response) {
+          alert(error.response.data.msg);
+        }
+      });
+    }
+  }
+
+  function search(q) {
+    addQueryParam('q', q);
+  }
+
+  function sorter(obj) {
+    addQueryParam('sorter', obj.value);
+  }
+
+  function page(page) {
+    addQueryParam('page', page);
+  }
+
+  function copyClipboard(text) {
+    let dump = document.createElement("input");
+    document.body.appendChild(dump).classList.add("opacity-0");
+    dump.value = text;
+    dump.select();
+    document.execCommand("copy");
+    document.body.removeChild(dump);
+    swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '클립보드에 복사되었습니다.',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
+</script>  

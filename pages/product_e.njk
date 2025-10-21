@@ -1,0 +1,253 @@
+---
+layout: base.njk
+title: 티켓상품
+permalink: /pages/product_e/index.html
+---
+
+<style>
+  .handheld-toolbar-enabled .footer {padding-bottom: 8.3rem !important;}
+</style>
+
+<div class="container mt-4 mb-2 mb-md-4 pb-5">
+	<!-- Gallery + details-->
+	<div class="bg-light shadow-lg rounded-3 px-3 py-3 mb-5">
+    <div class="row">
+      <!-- Product gallery-->
+      <div class="product-gallery">
+        <div class="product-gallery-preview order-sm-2 mt-0">
+          <div class="product-gallery-preview-item active overflow-hidden" id="prd-1">
+            <img src="/static/img/product/detail/mega1.png" alt="Product image">
+            <div class="image-zoom-pane"></div>
+          </div>
+          <div class="product-gallery-preview-item overflow-hidden" id="prd-2">
+            <img src="/static/img/product/detail/mega2.png" alt="Product image">
+            <div class="image-zoom-pane"></div>
+          </div>
+          <div class="product-gallery-preview-item overflow-hidden" id="prd-3">
+            <img src="/static/img/product/detail/mega3.png" alt="Product image">
+            <div class="image-zoom-pane"></div>
+          </div>
+        </div>
+        <div class="product-gallery-thumblist order-sm-1 p-0">
+          <a class="product-gallery-thumblist-item active" href="#prd-1">
+            <img src="/static/img/product/detail/mega1.png" alt="Product thumb" class="img-1by1">
+          </a>
+          <a class="product-gallery-thumblist-item" href="#prd-2">
+            <img src="/static/img/product/detail/mega2.png" alt="Product thumb" class="img-1by1">
+          </a>
+          <a class="product-gallery-thumblist-item" href="#prd-3">
+            <img src="/static/img/product/detail/mega3.png" alt="Product thumb" class="img-1by1">
+          </a>
+        </div>
+      </div>
+      <!-- Product details-->
+      <div class="pt-4">
+        <hr class="mb-3 d-block">
+        <div class="product-details ms-auto">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <!-- review -->
+            <a href="javascript:;" onclick="openReview();">
+              <span class="d-inline-block fs-sm text-body align-middle mt-1 ms-1">리뷰 0</span>
+            </a>
+            <button class="btn-wishlist me-0" type="button" onclick="wish(event, this)"><i class="ci-heart"></i></button>
+          </div>
+          <!-- name/price -->
+          <div class="mb-3">
+            <div class="h5 mb-1 fw-bold">(HOT)아메리카노</div>
+            <div class="text-muted fs-sm">★사용기한 30일</div>
+            <div class="mt-2">
+              <div>
+                <span class="me-1 text-primary fw-bold fs-lg">4%</span>
+                <del class="text-muted fs-lg">1,700원</del>
+              </div>
+              <div class="h3 me-1 fw-bold lineH-10">1,630<small class="fw-normal">원</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion my-4" id="ecouponPanels">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" href="#ecouponInfo" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="ecouponInfo">
+                <i class="ci-lable text-muted lead align-middle me-2"></i>상품 정보
+              </button>
+            </h3>
+            <div class="accordion-collapse collapse show" id="ecouponInfo" data-bs-parent="#ecouponPanels">
+              <div class="accordion-body px-2 fs-sm">
+                <div class="d-flex border-bottom pb-3 px-2">
+                  <div class="fw-semibold text-dark flex-shrink-0" style="width:100px;">상품 형태</div>
+                  <div>모바일 교환권</div>
+                </div>            
+                <div class="d-flex border-bottom py-3 px-2">
+                  <div class="fw-semibold text-dark flex-shrink-0" style="width:100px;">유효기간</div>
+                    <div class="word-keep-all">구매 후 30일</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- option box -->
+        <form class="w-100 bg-white option_box" onsubmit="return false;">
+          <div class="option_select_wrap px-4 pt-5">
+            <div class="d-flex justify-content-center align-items-center w-100 py-1 position-absolute top-0 start-0 border-bottom bg-secondary" onclick="closeOption();" style="cursor: pointer;"><i class="ci-arrow-down fs-xs"></i></div>
+            <div class="option-frame">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">(HOT)아메리카노</h6>
+                <a class="text-muted" href="#" onclick="" style="visibility: hidden"><i class="ci-close small"></i></a>
+              </div>
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <div class="input-group input-group-sm d-flex" style="width:128px;">
+                  <button class="btn btn-outline-dark" type="button" onclick="minus(this, 1630)"><i class="fa-solid fa-minus"></i></button>
+                  <input class="form-control text-center w-25" type="text" name="cnt" value="1" onkeyup="valueChange(this, 1630)">
+                  <button class="btn btn-outline-dark" type="button" onclick="plus(this, 1630)"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <span class="h3 fw-normal me-1 pt-3"><span id="prdPrice">1,630</span>원</span>
+                <input type="hidden" value="" name="id">
+                <input type="hidden" value="1630" name="price">
+              </div>
+            </div>            
+            <hr class="d-block">
+            <div class="d-flex justify-content-end align-items-center mt-3">
+              <span class="h3 me-1 text-primary fw-bold"><span class="fs-lg text-dark me-2">총 상품 금액 </span><span id="total">1,630</span>원</span>
+            </div>
+          </div>
+          <!-- btn -->
+          <div class="p-3 d-flex justify-content-between bg-white">
+            <div class="d-block me-3" style="width:44px;">
+              <button class="btn-wishlist" type="button" onclick="wish(event, this)"><i class="ci-heart"></i></button>
+            </div>
+            <div class="d-flex btn_closed" style='width:100%;'>
+              <button class="btn btn-outline-primary btn-shadow d-block w-100 me-2" type="button" onclick="openOption();">장바구니</button>
+              <button class="btn btn-primary btn-shadow d-block w-100" type="button" onclick="openOption();">구매하기</button>
+            </div>
+            <div class="d-none w-100 btn_opened">
+              <button class="btn btn-outline-primary btn-shadow d-block w-100 me-2" type="button" onclick="add_cart()">장바구니</button>
+              <button class="btn btn-primary btn-shadow d-block w-100" type="button" onclick="order()">구매하기</button>
+            </div>
+          </div>
+        </form>
+        <!-- // option box -->
+      </div>
+    </div>
+    <!-- tab -->
+    <ul class="nav nav-tabs nav-fill justify-content-center mt-5" role="tablist">
+      <li class="nav-item"><a href="#product_info" class="nav-link active px-2" data-bs-toggle="tab" role="tab">상품설명</a></li>
+      <li class="nav-item"><a href="#essential_info" class="nav-link px-2" data-bs-toggle="tab" role="tab">상세정보</a></li>
+      <li class="nav-item"><a href="#review" class="nav-link px-2" data-bs-toggle="tab" role="tab">리뷰</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="product_info" role="tabpanel" class="tab-pane fade show active">
+        <div class="d-flex flex-column justify-content-center align-items-center position-relative">
+          <div id="descr_box" class="closed col-sm-12 pt-md-3 pb-5" style="height:fit-content; overflow:hidden;">
+            <img src="/static/img/product/detail/detail.png" alt="">
+          </div>
+          <!-- Read more -->
+          <div id="read_more_area" class="col-12 position-absolute bottom-0 pt-5 pb-2 px-1 text-center d-none" style="background:linear-gradient(rgba(255,255,255,0) 20%,rgba(255,255,255,1) 80%);">
+            <button class="btn w-100 bg-white border border-dark" onclick="descrOpen(this);">자세히 보기 &nbsp;<i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>      
+      <div id="essential_info" role="tabpanel" class="tab-pane fade pb-3">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="px-0">
+              <h5>상품 정보 고시</h5>
+              <div class="table-responsive">
+                <table class="table table-bordered fs-sm">
+                  <tbody>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">발행자</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">교환권공급자</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">유효기간</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">이용조건</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">이용처</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">환불조건 및 방법</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; background-color: #0d0a0a10">소비자 상담 관련 전화번호</td>
+                      <td style="width: 60%">상세설명참조</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="px-0 pt-3">
+              상세설명
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="review" role="tabpanel" class="tab-pane fade pb-3">
+        <div class="row justify-content-center px-4">
+          <div class="col-12 px-0">
+            <div class="product-review border-bottom px-3 py-3">
+              <div>
+                <span class="fw-bold me-2">김 * *</span>
+                <small class="text-muted">2025-01-01</small>                      
+              </div>                
+              <div class="d-flex flex-wrap gap-2">
+                <img src="/static/img/product/thumb/megacoffee.png" class="w-100 mb-2" style="max-width:150px;">
+                <img src="/static/img/product/thumb/megacoffee.png" class="w-100 mb-2" style="max-width:150px;">
+                <img src="/static/img/product/thumb/megacoffee.png" class="w-100 mb-2" style="max-width:150px;">
+              </div>
+              <div class="fs-md">리뷰내용</div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="text-center mt-4 pt-3 border-top">
+      <a class="btn btn-outline-accent" type="button" data-bs-toggle="modal" href="#modalQuestion">상품 문의하기</a>
+    </div>    
+  </div>
+</div>
+
+<!-- 상품문의 modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modalQuestion">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">상품 문의</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="d-flex align-items-center">
+            <div style="width:48px;"><img src="/static/img/product/thumb/megacoffee.png" class="img-1by1 rounded-1" alt="Product"></div>
+            <div class="ps-2">
+              <h6 class="widget-product-title">(HOT)아메리카노</h6>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <label class="form-label" for="qna-subject">제목 <strong class='text-danger'>*</strong></label>
+          <input class="form-control" type="text" id="qna-subject" name="title" onkeyup="textLimit(this,20);" placeholder="최대 20자 까지 작성 할 수 있습니다." required>
+          <div class="invalid-feedback">제목을 입력해 주세요.</div>
+        </div>
+        <div class="mt-2">
+          <label class="form-label" for="qna-message">내용 <strong class='text-danger'>*</strong></label>
+          <textarea class="form-control" rows="6" required id="qna-message" name="contents" onkeyup="textLimit(this,2000);" placeholder="최대 2000자 까지 작성 할 수 있습니다."></textarea>
+          <div class="invalid-feedback">내용을 입력해 주세요.</div>
+        </div>
+        <div class="pt-2 d-flex justify-content-end">
+          <button class="btn btn-primary" type="button" onclick="question()">문의 하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: 이벤트
+permalink: /pages/event/index.html
+---
+
+<div class="container py-2 py-sm-3">
+  <ul class="nav nav-tabs nav-fill" role="tablist">
+    <li class="nav-item">
+      <a href="#proceeding" class="nav-link active" data-bs-toggle="tab" role="tab">진행중</a>
+    </li>
+    <li class="nav-item">
+      <a href="#closed" class="nav-link" data-bs-toggle="tab" role="tab">종료</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="proceeding" class="tab-pane fade show active" role="tabpanel">
+      <div class="row mx-n1">
+        <div class="col-sm-6 col-12 mb-grid-gutter px-1">
+          <a href="/pages/event_detail/" class="d-block text-dark">
+            <div class="card h-100 border-0">
+              <img src="/static/img/sub_imgs/event_thumb1.png" class="card-img-top img-1by1" alt="Event">
+              <div class="card-body px-3 pt-3 pb-0 lineH-12">
+                <p class="h6 fw-bold ellipsis-2">출근길 커피 할인 이벤트</p>
+                <p class="fs-xs text-muted">2025-07-04 ~ 2025-12-31</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="closed" class="tab-pane fade" role="tabpanel">
+      <div class="row mx-n1">
+        <div class="col-sm-6 col-12 mb-grid-gutter px-1">
+          <a href="/pages/event_detail/" class="d-block text-dark">
+            <div class="card h-100 border-0">
+              <img src="/static/img/sub_imgs/event_thumb2.png" class="card-img-top img-1by1 img-gray" alt="Event">
+              <div class="card-body px-3 pt-3 pb-0 lineH-12">
+                <p class="h6 fw-bold ellipsis-2">7월 직장인데이</p>
+                <p class="fs-xs text-muted">2024-07-01 ~ 2024-07-31</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
