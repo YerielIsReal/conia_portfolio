@@ -1,0 +1,6 @@
+# Node.js dependencies
+node_modules/
+_site/
+
+# 🚨 main 브랜치에서만 njk 파일 무시 (모든 폴더의 .njk 파일 제외)
+**/*.njk
