@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>주문내역</title>
+
+  <!-- theme/icons css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/theme/css/theme.min.css">
+
+  <!-- common css -->
+  <link rel="stylesheet" href="/static/css/common.css">
+</head>
+<body class="handheld-toolbar-enabled shadow">
+  <main class="page-wrapper">
+    
+<header>
+  <div class="bg-light shadow-none" style="border-bottom:1px solid #efefef;">
+    <!-- 최상단 -->
+    <div class="navbar navbar-light">
+      <div class="container">
+        
+          <a href="javascript:history.back();" class="btn py-1 px-2 text-dark d-block"><i class="ci-arrow-left"></i></a>
+        
+        <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+          <div class="navbar-tool">
+            <a href="javascript:void(0);" class="navbar-tool-icon-box" id="pushBell" onclick="openPush()" style="line-height: 3rem;">
+              <i class="navbar-tool-icon custom-icon icon-bell" style="font-size: 21px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+      <!-- account breadcrumb -->
+      <div class="w-100 mb-0 px-4 py-2 border-bottom fw-bold fs-sm">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item fs-xs"><a href="/"><i class="ci-home"></i></a></li>
+            <li class="breadcrumb-item fs-xs text-muted">마이메뉴</li>
+            <li class="breadcrumb-item fs-xs text-dark" aria-current="page">주문내역</li>
+          </ol>
+        </nav>
+      </div>
+    
+  </div>
+</header>
+
+    
+    <!-- 페이지별 본문 -->
+    
+<div class="container mt-4 mb-2 pb-5">
+  <div class="row">
+    <section class="col-12">
+      <div class="row align-items-center mb-2 mx-0">
+        <div class="col-md-6 col-12 d-flex flex-column align-items-md-baseline align-items-center">
+          <div class="text-muted fs-sm">2025-01-01</div>
+          <h5 class="fs-lg fw-bold">주문 번호 - 123456789</h5>
+        </div>
+        <div class="col-md-6 col-12 d-flex justify-content-end gap-1 px-0 mt-md-0 mt-3">
+            <a class="btn btn-sm btn-outline-dark" href="#">주문취소</a>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-header fw-bold">
+          주문 상품
+        </div>
+        <div class="card-body">
+          <!-- Item-->
+          <span class="badge bg-info me-2 mb-2 fs-sm">결제완료</span>
+          <div class="d-flex w-100">
+            <div class="me-3" style="min-width:80px; width:20%;">
+              <a class="d-inline-block flex-shrink-0 mx-auto" href="/pages/product_e/">
+                <img src="/static/img/product/thumb/megacoffee.png" alt="Product" class="img-1by1 rounded-2">
+              </a>							
+            </div>
+            <div style="width:80%;">
+              <div class="fs-sm">메가커피</div>
+              <div class="product-title mb-1 fw-bold">
+                <a href="/pages/product_e/">(HOT)아메리카노</a>
+              </div>
+              <div class="fs-sm mb-2"><span class="text-muted">주문 수량 : </span>1</div>
+              <div class="mt-3 lineH-10">
+                <del class="text-muted me-1 fs-sm">1,700원</del>
+                <span class="fs-lg fw-bold">1,630원</span>
+              </div>
+              <div class="d-flex gap-1 flex-wrap mt-3">
+                <button class="btn btn-sm btn-outline-primary" onclick="openReview('(HOT)아메리카노', '/static/img/product/thumb/megacoffee.png');">리뷰 작성</button>
+                <a class="btn btn-sm btn-outline-dark" href="/pages/account_qna_add/">문의하기</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-100 mt-3">
+            <a href="/pages/product_e/" class="btn btn-sm btn-primary d-block w-100 mt-2">자세히 보기</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3">
+        <div class="card-header fw-bold">
+          구매자 정보
+        </div>
+        <div class="card-body">
+          <table>
+            <tr>
+              <td class="text-muted pe-3 py-1">구매자</td>
+              <td>홍길동</td>
+            </tr>
+            <tr>
+              <td class="text-muted pe-3 py-1">연락처</td>
+              <td>010-1234-5678</td>
+            </tr>
+            <tr>
+              <td class="text-muted pe-3 py-1">이메일</td>
+              <td>user@email.com</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card my-3">
+        <div class="card-header d-flex flex-wrap justify-content-between">
+          <span class="fw-bold">주문 금액</span>
+          <span class="fw-bold text-accent">1,630원</span>
+        </div>
+        <div class="card-body">
+          <div class="mb-2 d-flex flex-wrap justify-content-between">
+            <span class="">상품 금액</span>
+            <span class="fw-bold">1,630원</span>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between">
+            <span class="">할인</span>
+            <span class="fw-bold">-0원</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3">
+        <div class="card-header fw-bold">
+          결제 상세
+        </div>
+        <div class="card-body">
+          <div class="mb-2 d-flex flex-wrap justify-content-between">
+            <span class=>신용카드</span>
+            <span class="fw-bold">1,630원</span>
+          </div>
+          <span>ㅇㅇ카드 (1234-5678-****-****) 일시불</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalReview">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">상품 리뷰</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row align-items-center">
+          <div class="col-3"><img src="" id="reviewPrdImg" class="w-100 img-1by1 rounded-2" alt="Product"></div>
+          <div class="col-9 ps-0">
+            <div class="widget-product-title" id="reviewPrdTitle">상품제목</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="review-message" class="mb-1 fw-bold">리뷰를 남겨주세요 <span class="text-primary">*</span></label>
+          <textarea required id="review-message" name="contents" maxlength="500" placeholder="최대 500자 까지 작성 할 수 있습니다." class="form-control pb-5" style="height:200px;"></textarea>
+          <input type="hidden" id="review-target">
+        </div>
+        <div class="d-flex gap-2 flex-wrap mt-2" id="review_photos">
+          <!-- Drag and drop file upload -->
+          <div class="file-drop-area d-flex align-items-center justify-content-center rounded-2">
+            <div class="file-drop-icon ci-cloud-upload mt-2"></div>
+            <input type="file" name="files" id="files_1" class="file-drop-input">
+          </div>
+        </div>
+        <div class="pt-2 d-flex justify-content-end">
+          <button id="btnWrite" class="btn btn-sm btn-primary" type="button" onclick="review()">리뷰 작성</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Toolbar-->
+    <div class="handheld-toolbar border-bottom">
+      <div class="d-table table-layout-fixed w-100">
+        <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" onclick="offCanvasOpen('#mobile_search');">
+          <span class="handheld-toolbar-icon"><i class="custom-icon icon-search"></i></span>
+          <span class="handheld-toolbar-label">검색</span>
+        </a>
+        <a class="d-table-cell handheld-toolbar-item" href="#">
+          <span class="handheld-toolbar-icon position-relative">
+            <i class="navbar-tool-icon custom-icon icon-cart"></i>
+            <span class="badge rounded-pill bg-primary position-absolute px-1 py-0" style="min-width:15px; height:15px; line-height:15px; top:2px; left:56%;">1</span>
+          </span>
+          <span class="handheld-toolbar-label">장바구니</span>
+        </a>
+        <a class="d-table-cell handheld-toolbar-item align-middle" href="/">
+          <img src="/static/img/weincHome.svg" alt="Home" style="width:24px;">
+        </a>
+        <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" onclick="offCanvasOpen('#mobile_mymenu');">
+          <span class="handheld-toolbar-icon"><i class="custom-icon icon-user"></i></span>
+          <span class="handheld-toolbar-label">마이메뉴</span>
+        </a>
+        <a class="d-table-cell handheld-toolbar-item" href="#">
+          <span class="handheld-toolbar-icon"><i class="custom-icon icon-heart"></i></span>
+          <span class="handheld-toolbar-label">관심상품</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- search -->
+    <div id="mobile_search">
+      <div class="mobile_offcanvas_wrap p-3">
+        <div class="offcanvas-header justify-content-end p-0">
+          <button type="button" class="btn btn-outline-secondary btn-sm" onclick="offCanvasClose('#mobile_search');"><i class="ci-close"></i></button>
+        </div>
+        <div class="input-group mt-5 position-relative">
+          <input id="mobile_search_box" onkeyup="if(window.event.keyCode == 13) { productSearch('mobile_search_box'); }" class="form-control form-control-md ps-2 pe-5 border-0 rounded-0 border-bottom border-dark border-2" type="text" name="q" minlength="2" placeholder="찾고 싶은 상품을 검색해보세요.">
+          <a href="javascript:;" onclick="productSearch('mobile_search_box');" class="position-absolute top-50 end-0 px-3 translate-middle-y text-dark"><i class="ci-search"></i></a>
+        </div>
+        <div class="mt-5 pt-3">
+          <div class="d-flex justify-content-between">
+            <span class="fw-bold">최근 검색어</span>
+            <a href="javascript:;" onclick="searchReset();" class="text-muted fs-sm">지우기</a>
+          </div>
+          <div id="recent_search" class="mt-2 fs-sm d-flex gap-2 flex-wrap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- my menu -->
+    <div id="mobile_mymenu">
+      <div class="mobile_offcanvas_wrap">
+        <div class="page-title-overlap bg-dark pt-3 px-3">
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-secondary btn-sm text-white" onclick="offCanvasClose('#mobile_mymenu');"><i class="ci-close"></i></button>
+          </div>
+        </div>
+        <div class="row mx-0 px-3">
+          <div class="col-12 px-0 mb-4 card mx-auto bg-white shadow border-0 overflow-hidden">
+            <div class="card-header py-4 text-center border-0">
+              <div class="text-muted">user@email.com</div>
+            </div>
+            <div class="card-body p-0">
+              <div class="bg-secondary text-muted px-4 py-2 fs-sm">마이메뉴</div>
+              <ul class="list-unstyled mb-0">
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="/pages/account_orders/">
+                      <i class="fa-solid fa-receipt nav-link-icon"></i>주문내역
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-ticket nav-link-icon"></i>오늘티켓
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-percent nav-link-icon"></i>쿠폰
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-heart nav-link-icon"></i>관심상품
+                      <span class="badge rounded bg-primary ms-auto wish-count">1</span>
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-user nav-link-icon"></i>개인정보수정
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-truck-fast nav-link-icon"></i>배송지관리
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-bullhorn nav-link-icon"></i>공지사항
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                      <i class="fa-solid fa-headset nav-link-icon"></i>자주하는 질문
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="#">
+                      <i class="fa-solid fa-circle-question nav-link-icon"></i>문의내역
+                    </a>
+                  </li>
+                  <li class="border-bottom mb-0">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="#">
+                      <i class="fa-solid fa-comment-dots nav-link-icon"></i>상품리뷰
+                    </a>
+                  </li>
+                  <li class="border-none mb-0">
+                    <a class="d-flex align-items-center px-4 py-3 bg-primary text-white" href="#">
+                      <i class="fa-solid fa-power-off nav-link-icon" style="color:#fff !important;"></i>로그아웃
+                    </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+
+    <!-- Back To Top Button-->
+    <a class="btn-scroll-top" href="javascript:void(0);" onclick="scrolltoTop();">
+      <i class="btn-scroll-top-icon ci-arrow-up"> </i>
+    </a>
+
+    <footer class="footer bg-dark">
+  <div class="pt-4 bg-darker">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <div class="widget widget-links widget-light">
+            <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
+              <li class="widget-list-item me-2"><a class="widget-list-link" href="">이용 약관</a></li>
+              <li class="widget-list-item mx-2"><a class="widget-list-link" href="">개인정보취급방침</a></li>
+              <li class="widget-list-item mx-2"><a class="widget-list-link" href="">청소년보호정책</a></li>
+              <li class="widget-list-item ms-2"><a class="widget-list-link" href="">판매자정보</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 text-center text-md-end d-none">
+          <div class="mb-3 mt-3 mt-md-0">
+            <a class="btn-social bs-light bs-twitter me-1 mb-2" href="#"><i class="ci-twitter"></i></a>
+            <a class="btn-social bs-light bs-facebook mx-1 mb-2" href="#"><i class="ci-facebook"></i></a>
+            <a class="btn-social bs-light bs-instagram mx-1 mb-2" href="#"><i class="ci-instagram"></i></a>
+            <a class="btn-social bs-light bs-youtube ms-1 mb-2" href="#"><i class="ci-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="pb-2 fs-xs text-light opacity-50">(주)코니아랩<br>
+        주소: 서울특별시 광진구 천호대로 690 3층 <br>
+        사업자 등록번호: 180-81-00867<br>
+        대표자: 김규식,나현정<br>
+        건강기능식품 영업신고번호: 제20210040295호<br>
+        의료기기판매업 신고번호: 제2745호<br>
+        통신판매업 신고번호: 제2019-서울광진-1022호<br>
+        이메일: conia_cs@conia.co.kr<br>
+        카카오톡 채널: 윙-크<br>
+        (주)코니아랩은 통신판매중개자로서 통신판매 당사자가 아니며, 판매자가 판매하는 상품정보 및 거래에 관한 의무와 책임을 지지 않습니다.
+      </div>
+      <div class="pb-4 fs-xs text-light opacity-50 text-center text-md-start">Copyright ⓒ 
+        <a class="text-light" href="https://www.conialab.com" target="_blank" rel="noopener">ConiaLab Corp.</a> All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </main>
+
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", themeActiveMenu);
+
+    // theme menu active
+    function themeActiveMenu() {
+      const currentPath = window.location.pathname;
+      const menuItems = document.querySelectorAll(".primary_menu li");
+
+      menuItems.forEach(function(li) {
+        const aTag = li.querySelector("a");
+        if (aTag) {
+          const href = aTag.getAttribute("href");
+
+          if (href == currentPath) {
+            li.classList.add("active");
+          }
+        }
+      });
+    }
+
+    function offCanvasOpen(obj) {
+      $("body").css("overflow","hidden");
+      $(obj).show();
+    }
+
+    function offCanvasClose(obj) {
+      $("body").css("overflow","auto");
+      $(obj).hide();
+    }
+
+    const pillBox = document.getElementById("recent_search");
+    let currentSearchCookie = getCookie("search");
+    function cookieSet(){
+      const searchParams = new URL(location.href).searchParams;
+      const getKeyword = searchParams.get("q");
+
+      let newSearchList = '';
+      if(getKeyword) {
+        newSearchList = getKeyword + ",";
+      }
+      if(currentSearchCookie) {
+        newSearchList += currentSearchCookie;
+      }
+
+      let pillArr;
+      let newSearchCookie = '';
+      if(newSearchList) {
+        pillArr = newSearchList.split(",");
+        pillArr = [...new Set(pillArr)];
+        pillArr.forEach(function(pill) {
+          if(!pill) return;
+          pillBox.innerHTML += "<a href='//product/search?q="+ pill +"' class='flex-shirink-0 rounded-pill border p-2 text-dark'>" + pill + "</a>";
+
+          newSearchCookie += pill + ",";
+        });
+      }
+
+      setCookie("search", newSearchCookie, 30);
+    }
+
+    function productSearch(input) {
+      let url = "//product/search?q=";
+      let keyword = document.getElementById(input).value.trim();
+      if (keyword) {
+        if(keyword.length < 2) {
+          swal.fire({
+            icon: "warning",
+            title: "검색어를 2자 이상 입력하세요.",
+            showConfirmButton: false,
+            timer: 1000
+          });
+          return;
+        }
+        location.href = url + keyword;
+      } else {
+        swal.fire({
+          icon: "warning",
+          title: "검색어를 입력하세요.",
+          showConfirmButton: false,
+          timer: 1000
+        });
+      }
+    }
+
+    function searchReset() {
+      let today = new Date();
+      today.setTime(today.getTime() - 1*24*60*60*1000);
+      document.cookie = escape("search") + "=; path=/; expires=" + today.toUTCString() + ";";
+      pillBox.innerHTML = "";
+      currentSearchCookie = false;
+    }
+
+    // modal gallery
+    function modalGallery(img) {
+      $(".gallery_img").attr("src", img);
+      $("#modal_gallery").modal("show");
+    }
+
+    $("#modal_gallery .modal-body").click(function () {
+      $("#modal_gallery").modal("hide");
+    });
+  </script>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" crossorigin="anonymous"></script>
+  <!-- common js -->
+  <script src="/static/js/aconic-common.js?v=1"></script>
+  <!-- theme js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/theme/js/theme.js"></script>
+</body>
+</html>

@@ -18,8 +18,6 @@ function addSwiper() {
   });
 }
 
-Document
-
 function validatePassword(password) {
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@#$!%*?&])[a-zA-Z\d@#$!%*?&]{8,20}$/;
   return passwordRegex.test(password) === true;
@@ -696,4 +694,123 @@ function order_complete() {
             timer: 1500,
         })
       });
+}
+
+// review
+function openReview(prdTitle, prdImg) {
+    // reset
+    document.getElementById("review-message").value = "";
+    document.querySelectorAll("input[type='file']").forEach(function(element){
+        element.value = "";
+    });
+    document.querySelectorAll(".img-preview-box").forEach(function(element){
+        element.innerHTML = "";
+        element.className = "file-drop-icon ci-cloud-upload mt-2";
+    });
+
+    document.getElementById("reviewPrdImg").src = prdImg;
+    document.getElementById("reviewPrdTitle").innerHTML = prdTitle;
+	document.getElementById("btnWrite").disabled = false;
+
+    const modal = new bootstrap.Modal(document.querySelector('#modalReview'));
+    modal.show();
+}
+
+function review() {
+    if (!document.getElementById("review-message").value) {
+        swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: '내용을 입력하세요.',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+        return;
+    }
+    swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '리뷰가 등록 되었습니다.',
+        showConfirmButton: false,
+        timer: 1500,
+    }).then(() => {
+        window.location.href = "/pages/account_orderhistory/";
+    });
+
+    document.getElementById("btnWrite").disabled = true;
+}
+
+// file upload
+$(document).ready(function () {
+    var fileArea = document.querySelectorAll('.file-drop-area');
+    var _loop2 = function _loop2(i) {
+    var input = fileArea[i].querySelector('.file-drop-input'),
+        icon = fileArea[i].querySelector('.file-drop-icon');
+    input.addEventListener('change', function () {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var fileData = e.target.result;
+            var fileName = input.files[0].name;
+            if (fileData.startsWith('data:image')) {
+            var image = new Image();
+            image.src = fileData;
+            image.onload = function () {
+                icon.className = 'img-preview-box';
+                icon.innerHTML = '<img src="' + image.src + '" alt="' + fileName + '">';
+            };
+            }
+        };
+        reader.readAsDataURL(input.files[0]);
+        }
+    });
+    };
+    for (var i = 0; i < fileArea.length; i++) {
+    _loop2(i);
+    }
+});
+
+// qna add
+function qnaAdd(event) {
+    event.preventDefault(); 
+
+    const form = document.getElementById('qnaForm');
+
+    if (!form.checkValidity()) {
+        form.classList.add('was-validated');     
+        return false; 
+    }
+    
+    form.classList.remove('was-validated'); 
+    
+    swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '등록되었습니다',
+        showConfirmButton: false,
+        timer: 1500,
+    }).then(() => {
+        window.location.href = "/pages/account_qna/";
+    });
+}
+
+// qna del
+function qnaDel() {
+    Swal.fire({
+        title: "문의를 삭제하시겠습니까?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#fe696a",
+        confirmButtonText: "예",
+        cancelButtonText: "취소"
+    }).then(() => {
+        Swal.fire({
+            icon: 'success',
+            title: '삭제 되었습니다.',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(() => {
+            window.location.href = "/pages/accßount_qna/";
+        });   
+    });
 }
