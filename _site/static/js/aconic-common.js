@@ -23,7 +23,7 @@ function validatePassword(password) {
   return passwordRegex.test(password) === true;
 }
 
-
+// 소팅, 검색 등 파라미터 값
 function addQueryParam(key, value) {
     const url = new URL(window.location.href);
     url.searchParams.set(key, value);
@@ -517,19 +517,26 @@ function delOption(obj) {
 
 // 상세페이지 open / close
 document.addEventListener("DOMContentLoaded", function(){
-  let descr_box = document.getElementById("descr_box");
-  let read_more_area = document.getElementById("read_more_area");
-  let descr_box_height = descr_box.offsetHeight;
-  let minimum_height = window.innerHeight * 0.6;
+    let descr_box = document.getElementById("descr_box");
+    let read_more_area = document.getElementById("read_more_area");
+    let descr_box_height;
+    let minimum_height;
 
-  if (descr_box_height > minimum_height) {
-    descr_box.style.height = "60vh";
-    read_more_area.classList.remove("d-none");
-    read_more_area.classList.add("d-block");
-  } else {
-    read_more_area.classList.remove("d-block");
-    read_more_area.classList.add("d-none");
-  }
+    if(descr_box && read_more_area) {
+        descr_box_height = descr_box.offsetHeight;
+        minimum_height = window.innerHeight * 0.6;
+
+        if (descr_box_height > minimum_height) {
+            descr_box.style.height = "60vh";
+            read_more_area.classList.remove("d-none");
+            read_more_area.classList.add("d-block");
+        } else {
+            read_more_area.classList.remove("d-block");
+            read_more_area.classList.add("d-none");
+        }
+    } else {
+        return false;
+    }
 });
 
 function descrOpen(obj) {
@@ -673,6 +680,22 @@ function urlClipboard() {
             showConfirmButton: false,
             timer: 1500,
         });
+}
+
+function copyClipboard(text) {
+    let dump = document.createElement("input");
+    document.body.appendChild(dump).classList.add("opacity-0");
+    dump.value = text;
+    dump.select();
+    document.execCommand("copy");
+    document.body.removeChild(dump);
+    swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '클립보드에 복사되었습니다.',
+        showConfirmButton: false,
+        timer: 1500,
+    });
 }
 
 // account order

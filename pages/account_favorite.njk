@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: 관심상품
+permalink: /pages/account_favorite/index.html
+---
+
+<div class="container mt-4 mb-2 pb-5">
+  <div class="row">
+    <section class="col-12">
+      <div class="col-6 px-1 mb-grid-gutter wish-item">
+        <div class="card product-card h-100 border-0 overflow-hidden">
+          <a href="/pages/product_e/" class="d-block h-100 text-dark">
+            <div class="position-relative">
+              <img src="/static/img/product/thumb/megacoffee.png" alt="Product" class="img-1by1 rounded-3">
+              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="관심상품 추가" onclick="wish(event, this)">
+                <i class="ci-heart-filled text-primary"></i>
+              </button>
+            </div>
+            <div class="item-card-body">
+              <div class="item-name-wrap">
+                <div class="item-shop-name">메가커피</div>
+                <div class="item-title ellipsis-2">(HOT)아메리카노</div>
+              </div>
+              <div class="item-price-wrap">
+                <span class="item-discount-per">4%</span>
+                <div class="item-selling-price">1,630원</div>
+                <div class="item-discount-wrap">
+                  <del class="item-discount-price">1,700원</del>
+                </div>
+              </div>
+              <div class="item-subtitle ellipsis-2">★사용기한 30일</div>
+            </div>
+          </a>
+        </div>
+      </div>      
+    </section>
+  </div>
+</div>

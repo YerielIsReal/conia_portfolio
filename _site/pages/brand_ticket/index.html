@@ -21,7 +21,8 @@
 <body class="handheld-toolbar-enabled shadow">
   <main class="page-wrapper">
     
-<header>
+
+    <header>
   <div class="bg-light shadow-none" style="border-bottom:1px solid #efefef;">
     <!-- 최상단 -->
     <div class="navbar navbar-light">
@@ -495,53 +496,53 @@
               <div class="bg-secondary text-muted px-4 py-2 fs-sm">마이메뉴</div>
               <ul class="list-unstyled mb-0">
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="/pages/account_orders/">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_orders/">
                       <i class="fa-solid fa-receipt nav-link-icon"></i>주문내역
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_myticket">
                       <i class="fa-solid fa-ticket nav-link-icon"></i>오늘티켓
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_coupon/">
                       <i class="fa-solid fa-percent nav-link-icon"></i>쿠폰
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_favorite/">
                       <i class="fa-solid fa-heart nav-link-icon"></i>관심상품
                       <span class="badge rounded bg-primary ms-auto wish-count">1</span>
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_account">
                       <i class="fa-solid fa-user nav-link-icon"></i>개인정보수정
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_address/">
                       <i class="fa-solid fa-truck-fast nav-link-icon"></i>배송지관리
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_notice/">
                       <i class="fa-solid fa-bullhorn nav-link-icon"></i>공지사항
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_fnq/">
                       <i class="fa-solid fa-headset nav-link-icon"></i>자주하는 질문
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_qna/">
                       <i class="fa-solid fa-circle-question nav-link-icon"></i>문의내역
                     </a>
                   </li>
                   <li class="border-bottom mb-0">
-                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="#">
+                    <a class="nav-link-style d-flex align-items-center px-4 py-3 " href="/pages/account_review/">
                       <i class="fa-solid fa-comment-dots nav-link-icon"></i>상품리뷰
                     </a>
                   </li>
@@ -604,6 +605,17 @@
 </footer>
 
   </main>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" crossorigin="anonymous"></script>
+  <!-- common js -->
+  <script src="/static/js/aconic-common.js?v=1"></script>
+  <!-- theme js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/theme/js/theme.js"></script>
 
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", themeActiveMenu);
@@ -706,17 +718,6 @@
     $("#modal_gallery .modal-body").click(function () {
       $("#modal_gallery").modal("hide");
     });
-  </script>
-
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" crossorigin="anonymous"></script>
-  <!-- common js -->
-  <script src="/static/js/aconic-common.js?v=1"></script>
-  <!-- theme js -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="/theme/js/theme.js"></script>
+  </script>  
 </body>
 </html>
